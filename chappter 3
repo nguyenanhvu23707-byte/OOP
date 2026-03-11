@@ -1,0 +1,22 @@
+def draw_grid(rows, cols, cell_size=4):
+    """
+    Vẽ lưới với số hàng (rows) và số cột (cols).
+    cell_size: số dòng/ô (chiều cao mỗi ô).
+    """
+    # Dòng ngang (đỉnh của ô)
+    horizontal = ("+ " + "- " * cell_size) * cols + "+"
+    # Dòng dọc (thân của ô)
+    vertical = ("| " + "  " * cell_size) * cols + "|"
+
+    for r in range(rows):
+        print(horizontal)
+        for i in range(cell_size):
+            print(vertical)
+    print(horizontal)
+
+
+# Ví dụ: vẽ lưới 2x2
+draw_grid(2, 2)
+
+print("\n")
+
