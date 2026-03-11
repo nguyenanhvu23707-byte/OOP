@@ -1,0 +1,16 @@
+#so giay trong 42phut42giay
+s=42*60+42
+print("Tổng số giây: ", s)
+
+#co bao nhieu dam trong 10km
+d=10/1.61
+print("10 Km = ", d, "dặm")
+
+#toc do trung binh
+h=s/3600
+speed_mph=h/d
+ppm=s/d
+phut=int(ppm//60)
+giay=int(ppm%60)
+print("Tốc dộ trung bình: ", speed_mph, "dặm/giờ")
+print("Nhịp độ trung bình: ", phut, "phút", giay, "giây mỗi dặm")
