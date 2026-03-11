@@ -1,0 +1,25 @@
+import math
+#the tich hinh cau ban kinh 5
+r=5
+v=(4/3)*math.pi*r**3
+print("Thể tích hình cầu: ", v)
+
+#chi phi ban si cho 60 cuon sach
+gb=24.95
+giam=0.40
+gsg=24.95*(1-giam)
+gia_60_cuon=gsg*60
+ship=3+59*0.75
+tong=gia_60_cuon + ship
+print("Tổng số tiền: ", tong)
+
+#thoi gian chay
+tdd=8*60+15
+tdn=7*60+12
+tong=tdd+3*tdn+tdd
+tgbd=6*3600+52*60
+tght=tong+tgbd
+h=tght//3600
+p=tght%3600//60
+g=tght%60
+print("Về nhà lúc: ", h, "giờ", p, "phút", g, "giây")
