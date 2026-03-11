@@ -1,0 +1,15 @@
+import time
+
+# Lấy thời gian hiện tại (epoch)
+current_time = time.time()
+
+# Số ngày kể từ epoch
+days_since_epoch = int(current_time // (24*3600))
+
+# Chuyển đổi sang giờ, phút, giây
+hours = int((current_time % 86400) // 3600)
+minutes = int((current_time % 3600) // 60)
+seconds = int(current_time % 60)
+
+print("Ngày kể từ epoch:", days_since_epoch)
+print(f"Thời gian hiện tại: {hours}:{minutes}:{seconds}")
