@@ -15,7 +15,7 @@ while True:
     sieu_nhan=SieuNhan(ten, vu_khi, mau_sac)
     danh_sach.append(sieu_nhan)
     tiep_tuc=input("Bạn có muốn nhập thêm siêu nhân không? (y/n)")
-    if tiep_tuc=="y":
+    if tiep_tuc.lower()!="y":
         break
 print("\nDanh sách siêu nhân:")
 for sn in danh_sach:
