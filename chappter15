@@ -1,0 +1,50 @@
+import math
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+class Rectangle:
+    def __init__(self, x, y, width, height):
+        self.x = x      # tọa độ góc trái trên
+        self.y = y
+        self.width = width
+        self.height = height
+
+    def corners(self):
+        return [
+            Point(self.x, self.y),
+            Point(self.x + self.width, self.y),
+            Point(self.x, self.y + self.height),
+            Point(self.x + self.width, self.y + self.height)
+        ]
+
+class Circle:
+    def __init__(self, center, radius):
+        self.center = center
+        self.radius = radius
+
+    def point_in_circle(self, p):
+        distance = math.sqrt((p.x - self.center.x)**2 + (p.y - self.center.y)**2)
+        return distance <= self.radius
+
+    def rect_in_circle(self, rect):
+        # tất cả các góc phải nằm trong hình tròn
+        return all(self.point_in_circle(corner) for corner in rect.corners())
+
+    def rect_circle_overlap(self, rect):
+        # chỉ cần một góc nằm trong hình tròn
+        return any(self.point_in_circle(corner) for corner in rect.corners())
+
+
+# --- Thử nghiệm ---
+circle = Circle(Point(150, 100), 75)
+point = Point(160, 120)
+rect1 = Rectangle(140, 90, 20, 20)   # nằm trong hình tròn
+rect2 = Rectangle(200, 150, 50, 50)  # nằm ngoài hình tròn
+
+print("Point trong Circle:", circle.point_in_circle(point))
+print("Rect1 trong Circle:", circle.rect_in_circle(rect1))
+print("Rect2 trong Circle:", circle.rect_in_circle(rect2))
+print("Rect2 có overlap Circle:", circle.rect_circle_overlap(rect2))
