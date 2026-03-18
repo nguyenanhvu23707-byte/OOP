@@ -1,0 +1,22 @@
+class SieuNhan:
+    def __init__(self, ten, vu_khi, mau_sac):
+        self.ten = ten
+        self.vu_khi = vu_khi
+        self.mau_sac = mau_sac
+    def __str__(self):
+        return f'{self.ten} {self.vu_khi} {self.mau_sac}'
+danh_sach=[]
+
+while True:
+    print("Nhập thông tin siêu nhân:")
+    ten=input("Tên:")
+    vu_khi=input("Vũ khí:")
+    mau_sac=input("Màu sắc:")
+    sieu_nhan=SieuNhan(ten, vu_khi, mau_sac)
+    danh_sach.append(sieu_nhan)
+    tiep_tuc=input("Bạn có muốn nhập thêm siêu nhân không? (y/n)")
+    if tiep_tuc=="y":
+        break
+print("\nDanh sách siêu nhân:")
+for sn in danh_sach:
+    print(sn)
