@@ -1,0 +1,14 @@
+class SieuNhan:
+    name=str
+    vu_khi=str
+    mau_sac=str
+    def __init__(self, name="", vu_khi="", mau_sac=""):
+        self.name = name
+        self.vu_khi = vu_khi
+        self.mau_sac = mau_sac
+    def __str__(self):
+        return ("SieuNhan: %s, vu_khi: %s, mau_sac: %s" % (self.name, self.vu_khi, self.mau_sac))
+sieunhanA= SieuNhan("A", "Kiếm", "Đỏ")
+sieunhanB= SieuNhan("B", "Khiên", "Xanh")
+print(sieunhanA)
+print(sieunhanB)
