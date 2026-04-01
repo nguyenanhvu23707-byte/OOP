@@ -1,0 +1,77 @@
+#Lớp cha: hàng hóa
+class HangHoa:
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia):
+        self._ma_hang = ma_hang
+        self._ten_hang = ten_hang
+        self._nha_sx = nha_sx
+        self._gia = gia
+
+    def hien_thi(self):
+        print(f"Mã hàng: {self._ma_hang}")
+        print(f"Tên hàng: {self._ten_hang}")
+        print(f"Nhà sản xuất: {self._nha_sx}")
+        print(f"Giá: {self._gia}")
+
+#Lớp con 1: điện máy
+
+class HangDienMay(HangHoa):
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia, tg_baohanh, dien_ap, cong_suat):
+        super().__init__(ma_hang, ten_hang, nha_sx, gia)
+        self._tg_baohanh = tg_baohanh
+        self._dien_ap = dien_ap
+        self._cong_suat = cong_suat
+
+    def hien_thi(self):
+        super().hien_thi()
+        print(f"Thời gian bảo hành: {self._tg_baohanh} tháng")
+        print(f"Điện áp: {self._dien_ap}V")
+        print(f"Công suất: {self._cong_suat}W")
+
+
+#Lớp con 2: hàng sành sứ
+
+class HangSanhSu(HangHoa):
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia, loai_nguyenlieu):
+        super().__init__(ma_hang, ten_hang, nha_sx, gia)
+        self._loai_nguyenlieu = loai_nguyenlieu
+
+    def hien_thi(self):
+        super().hien_thi()
+        print(f"Loại nguyên liệu: {self._loai_nguyenlieu}")
+
+#Lớp con 3: hàng thực phẩm
+
+class HangThucPham(HangHoa):
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia, ngay_sx, ngay_hethan):
+        super().__init__(ma_hang, ten_hang, nha_sx, gia)
+        self._ngay_sx = ngay_sx
+        self._ngay_hethan = ngay_hethan
+
+    def hien_thi(self):
+        super().hien_thi()
+        print(f"Ngày sản xuất: {self._ngay_sx}")
+        print(f"Ngày hết hạn: {self._ngay_hethan}")
+
+dm = HangDienMay(
+    "DM001", "Tủ lạnh Inverter 360L", "Samsung",
+    12_500_000, 24, 220, 150)
+
+
+ss = HangSanhSu(
+    "SS001", "Bộ chén sứ Minh Long", "Minh Long",
+    850_000, "Sứ cao cấp")
+
+
+tp = HangThucPham(
+    "TP001", "Cà phê rang xay Aura Brew", "Aura Brew",
+    185_000, "01/03/2026", "01/03/2027")
+
+
+dm.hien_thi()
+print()
+ss.hien_thi()
+print()
+tp.hien_thi()
+
+
+
