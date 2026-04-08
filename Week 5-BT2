@@ -46,9 +46,9 @@ class TruongPhong(NhanVien):
 
 
 if __name__ == "__main__":
-    ctv = CongTacVien("CT01", "Nguyễn Văn A", 1995, "Nam", "Hà Nội", 2.5, 5000, "6 tháng", 500)
-    nv = NhanVienChinhThuc("NV01", "Trần Thị B", 1990, "Nữ", "Hà Nội", 3.0, 6000, "Kế toán")
-    tp = TruongPhong("TP01", "Lê Văn C", 1985, "Nam", "Hà Nội", 4.0, 8000, "01/01/2020", 1000)
+    ctv = CongTacVien("CT01", "Nguyễn Vân Anh", 1995, "Nữ", "Hà Nội", 2.5, 5000, "6 tháng", 500)
+    nv = NhanVienChinhThuc("NV01", "Lưu Như Yên", 1990, "Nữ", "Hà Nội", 3.0, 6000, "Kế toán")
+    tp = TruongPhong("TP01", "Tiêu Cảnh Thần", 1985, "Nam", "Hà Nội", 4.0, 8000, "01/01/2020", 1000)
 
     print(ctv)
     print(nv)
