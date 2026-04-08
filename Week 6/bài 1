@@ -1,1 +1,55 @@
+class Employee:
+    def __init__(self, emp_id, name, birth_year, gender, address, salary_coef, max_salary):
+        if salary_coef <= 0:
+            raise ValueError("Hệ số lương phải > 0")
+        self.emp_id = emp_id
+        self.name = name
+        self.birth_year = birth_year
+        self.gender = gender
+        self.address = address
+        self.salary_coef = salary_coef
+        self.max_salary = max_salary
 
+    def calculate_salary(self):
+        salary = self.salary_coef * 1000  # giả sử lương cơ bản = 1000
+        return min(salary, self.max_salary)
+
+    def __str__(self):
+        return f"{self.name} ({self.emp_id}) - Lương: {self.calculate_salary()}"
+
+
+class Collaborator(Employee):
+    def __init__(self, emp_id, name, birth_year, gender, address, salary_coef, max_salary, contract_term, allowance):
+        super().__init__(emp_id, name, birth_year, gender, address, salary_coef, max_salary)
+        self.contract_term = contract_term
+        self.allowance = allowance
+
+    def calculate_salary(self):
+        return super().calculate_salary() + self.allowance
+
+
+class OfficialEmployee(Employee):
+    def __init__(self, emp_id, name, birth_year, gender, address, salary_coef, max_salary, position):
+        super().__init__(emp_id, name, birth_year, gender, address, salary_coef, max_salary)
+        self.position = position
+
+
+class Manager(Employee):
+    def __init__(self, emp_id, name, birth_year, gender, address, salary_coef, max_salary, start_date, management_allowance):
+        super().__init__(emp_id, name, birth_year, gender, address, salary_coef, max_salary)
+        self.start_date = start_date
+        self.management_allowance = management_allowance
+
+    def calculate_salary(self):
+        return super().calculate_salary() + self.management_allowance
+
+
+# Ví dụ sử dụng
+if __name__ == "__main__":
+    ctv = Collaborator("CT01", "Nguyen Van A", 1995, "Nam", "Hà Nội", 2.5, 5000, "6 tháng", 500)
+    nv = OfficialEmployee("NV01", "Tran Thi B", 1990, "Nữ", "Hà Nội", 3.0, 6000, "Kế toán")
+    tp = Manager("TP01", "Le Van C", 1985, "Nam", "Hà Nội", 4.0, 8000, "01/01/2020", 1000)
+
+    print(ctv)
+    print(nv)
+    print(tp)
