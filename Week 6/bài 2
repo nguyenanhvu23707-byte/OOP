@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-# --- Ngoại lệ tùy chỉnh ---
+
 class TuoiKhongHopLe(Exception):
     pass
 
@@ -8,7 +8,6 @@ class BacKhongHopLe(Exception):
     pass
 
 
-# --- Lớp trừu tượng ---
 class CanBo(ABC):
     def __init__(self, ho_ten, tuoi, gioi_tinh, dia_chi):
         self.ho_ten = ho_ten
@@ -43,7 +42,7 @@ class CanBo(ABC):
         return self.ho_ten < other.ho_ten
 
 
-# --- Các lớp con ---
+
 class CongNhan(CanBo):
     def __init__(self, ho_ten, tuoi, gioi_tinh, dia_chi, bac):
         super().__init__(ho_ten, tuoi, gioi_tinh, dia_chi)
@@ -90,7 +89,6 @@ class NhanVienSX(CanBo):
         return f"Nhân viên SX {self.ho_ten}, công việc: {self.cong_viec}"
 
 
-# --- Quản lý cán bộ với context manager ---
 class QLCB:
     def __init__(self, filename):
         self.filename = filename
@@ -116,7 +114,7 @@ class QLCB:
         self.file.close()
 
 
-# --- Ví dụ sử dụng ---
+
 if __name__ == "__main__":
     cn = CongNhan("Nguyễn Văn Tuấn", 30, "Nam", "Hà Nội", 5)
     ks = KySu("Trần Thị Bưởi", 40, "Nữ", "Đà Nẵng", "Xây dựng")
